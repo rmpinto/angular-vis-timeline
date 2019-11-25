@@ -1,0 +1,15 @@
+#timeline {
+	height: 200px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.top-container {
+	height: 250px;
+	margin-bottom: 6px;
+}
+
+.bottom-container {
+	margin: 6px;
+	border-width: 1px;
+	border-color: grey;
+}

@@ -1,0 +1,84 @@
+
+<div class="container">
+  <hr>
+    <h2>Vis.js in Angular 7 - Timeline Demo</h2>
+  <hr>
+  <div class="container main-container">
+    <!-- Timeline -->
+    <div class="container top-container">
+      <div class="row">
+        <div class="col-md-12">
+          <div id="timeline" #timeline></div>
+        </div>
+      </div>
+    </div>
+    <div class="container bottom-container">
+      <div class="shadow-sm p-3 mb-3 bg-white rounded">
+      <!-- Options -->
+        <div class="row">
+            <div class="col-md-3">
+                <button type="button" class="btn btn-primary btn-block mr-2" (click)="fitRange()">Fit all items</button>
+            </div>
+            <div class="col-md-3">
+                <button type="button" class="btn btn-primary btn-block mr-2" (click)="setWindow()">Set range</button>
+            </div>
+            <div class="col-md-3">
+                <button type="button" class="btn btn-primary btn-block mr-2" (click)="centerView()">Center</button>
+            </div>
+            <div class="col-md-3">
+                <button type="button" class="btn btn-primary btn-block mr-2" (click)="focusItem()">Focus</button>
+            </div>
+        </div>
+      </div>
+      <!-- Add items -->
+      <div class="shadow-sm p-3 mb-3 bg-white rounded">
+        <div class="row">
+            <div class="col-md-12">
+              <form>
+                <div class="form-group">
+                    <label for="sample">Sample</label>
+                    <input type="text" class="form-control" id="sample" placeholder="Sample name here" (input)="inputName=$event.target.value">
+                    <div class="row mt-3">
+                      <div class="col-md-3">
+                          <label for="date">Start date</label>
+                          <input type="date" class="form-control" id="startDate" (input)="inputStartDate=$event.target.value">
+                      </div>
+                      <div class="col-md-3">
+                          <label for="date">Start time</label>
+                          <input type="time" class="form-control" value="00:00" id="startTime" (input)="inputStartTime=$event.target.value">
+                      </div>
+                      <div class="col-md-3">
+                          <label for="date">End date</label>
+                          <input type="date" class="form-control" id="endDate" (input)="inputEndDate=$event.target.value">
+                      </div>
+                      <div class="col-md-3">
+                        <label for="date">End time</label>
+                        <input type="time" class="form-control" value="00:00" id="endTime" (input)="inputEndTime=$event.target.value">
+                    </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-success btn-block mr-2" (click)="addItem()">Add Sample</button>
+              </form>
+            </div>
+        </div>
+      </div>
+      <!-- Remove item -->
+      <div class="shadow-sm p-3 mb-3 bg-white rounded">
+        <div class="row">
+            <div class="col-md-12">
+              <form>
+                <div class="form-group">
+                    <label for="selectSample">Select sample ID</label>
+                    <select class="form-control" name="selectSample" [(ngModel)]="selectedItem">
+                      <option *ngFor="let option of idOptions" [value]="option">{{option}}</option>
+                    </select>
+                </div>
+                <button type="button" class="btn btn-danger btn-block mr-2" (click)="delItem()">Remove Sample</button>
+              </form>
+            </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
