@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-// import { ValueTransformer } from '@angular/compiler/src/util';
 
 // Declare vis library
 declare const vis: any;
@@ -14,7 +13,7 @@ export class TimevisComponent implements OnInit, AfterViewInit {
 	/*
   	By using @ViewChild, the timelineContainer member variable is going to be filled in by Angular with a ElementRef instance.
   	*/
-	@ViewChild('timeline') timelineContainer: ElementRef;
+	@ViewChild('timeline', { static: true }) timelineContainer: ElementRef;
 	tlContainer: any;
 	timeline: any;
 	data: any;
