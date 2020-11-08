@@ -22,6 +22,8 @@ export class TimevisComponent implements OnInit, AfterViewInit {
 	options: {};
 	inputStartDate: Date;
 	inputEndDate: Date;
+	inputStartTime: string;
+	inputEndTime: string;
 	inputName: string;
 	selectedItem: any;
 
@@ -105,7 +107,7 @@ export class TimevisComponent implements OnInit, AfterViewInit {
 		};
 	}
 
-	private delItem(): void {
+	public delItem(): void {
 		console.log('Add item ');
 		console.log('Selected item is ' + this.selectedItem);
 		if (this.selectedItem) {
@@ -116,7 +118,7 @@ export class TimevisComponent implements OnInit, AfterViewInit {
 		}
 	}
 
-	private addItem(): void {
+	public addItem(): void {
 		console.log('Add item ');
 		console.log('Start date is ' + this.inputStartDate);
 		console.log('End date is ' + this.inputEndDate);
@@ -136,26 +138,26 @@ export class TimevisComponent implements OnInit, AfterViewInit {
 		}
 	}
 
-	private fitRange(): void {
+	public fitRange(): void {
 		console.log('Fitting timeline');
 		this.timeline.fit('linear');
 	}
 
-	private focusItem(): void {
+	public focusItem(): void {
 		console.log('Focus on item with id 7');
 		// Focus and select item
 		this.timeline.focus('7');
 		this.timeline.setSelection('7');
 	}
 
-	private setWindow(): void {
+	public setWindow(): void {
 		console.log('Setting range window');
 		const startWindow = new Date(+Object.values(this.options)[1].valueOf() + 60 * 60 * 4 * 1000);
 		const endWindow = new Date(+Object.values(this.options)[2].valueOf() - 60 * 60 * 4 * 1000);
 		this.timeline.setWindow(startWindow, endWindow);
 	}
 
-	private centerView(): void {
+	public centerView(): void {
 		console.log('Centering on specific time');
 		const duration = +Object.values(this.options)[2].valueOf() - +Object.values(this.options)[1].valueOf();
 		const centerDate = new Date(+Object.values(this.options)[2].valueOf() + Math.round(duration / 2));
